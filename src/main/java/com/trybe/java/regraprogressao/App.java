@@ -54,14 +54,14 @@ public class App {
     float finalGrade = calculateStudentRating(totalGrade, totalWeight);
     if (finalGrade >= 85) {
       System.out.println(
-          "Parabéns! Você alcançou " + String.format("%.2d", finalGrade)
+          "Parabéns! Você alcançou " + finalGrade
               + "%! E temos o prazer de informar que você obteve aprovação!"
       );
     } else {
       System.out.println(
           "Lamentamos informar que, com base na sua pontuação alcançada neste período, "
-              + String.format("%.2d", finalGrade)
-              + ", você não atingiu a pontuação mínima necessária para sua aprovação."
+              + finalGrade
+              + "%, você não atingiu a pontuação mínima necessária para sua aprovação."
       );
     }
 
