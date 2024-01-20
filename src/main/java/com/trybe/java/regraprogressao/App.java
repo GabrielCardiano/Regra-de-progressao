@@ -57,6 +57,12 @@ public class App {
           "Parabéns! Você alcançou " + String.format("%.2d", finalGrade)
               + "%! E temos o prazer de informar que você obteve aprovação!"
       );
+    } else {
+      System.out.println(
+          "Lamentamos informar que, com base na sua pontuação alcançada neste período, "
+              + String.format("%.2d", finalGrade)
+              + ", você não atingiu a pontuação mínima necessária para sua aprovação."
+      );
     }
 
     scanner.close();
