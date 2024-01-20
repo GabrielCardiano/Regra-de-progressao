@@ -25,6 +25,7 @@ public class App {
 
     int countActivities = 1;
     int totalWeight = 0;
+    float totalGrade = 0;
 
     // ------- Cadastro de atividade -----------
     System.out.print("Digite a quantidade de atividades para cadastrar: ");
@@ -35,19 +36,33 @@ public class App {
       String nome = scanner.nextLine();
 
       System.out.print("Digite o peso da atividade " + countActivities + ": ");
-      int weight = Integer.parseInt(scanner.nextLine());
-      totalWeight += weight;
+      int activityWeight = Integer.parseInt(scanner.nextLine());
+      totalWeight += activityWeight;
 
       System.out.print("Digite a nota obtida para " + nome + ": ");
-      int grade = Integer.parseInt(scanner.nextLine());
+      float grade = Float.parseFloat(scanner.nextLine());
+      totalGrade += grade * activityWeight;
 
       countActivities++;
     }
 
     if (totalWeight != 100) {
       System.out.println("A soma dos pesos é diferente de 100!");
+      return;
+    }
+
+    float finalGrade = calculateStudentRating(totalGrade, totalWeight);
+    if (finalGrade >= 85) {
+      System.out.println(
+          "Parabéns! Você alcançou " + String.format("%.2d", finalGrade)
+              + "%! E temos o prazer de informar que você obteve aprovação!"
+      );
     }
 
     scanner.close();
+  }
+
+  public static float calculateStudentRating(float totalGrade, int totalWeight) {
+    return totalGrade / totalWeight;
   }
 }
