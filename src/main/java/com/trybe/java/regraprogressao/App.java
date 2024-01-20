@@ -14,18 +14,18 @@ public class App {
    * @param args the input arguments
    */
   public static void main(String[] args) {
-    registerEvaluativeActivity();
+    cadastroDeAtividadesAvaliativas();
   }
 
   /**
    * Register evaluative activity.
    */
-  public static void registerEvaluativeActivity() {
+  public static void cadastroDeAtividadesAvaliativas() {
     Scanner scanner = new Scanner(System.in);
 
     int countActivities = 1;
-    HashMap<String, Integer> finalGrade = new HashMap<String, Integer>();
 
+    // ------- Cadastro de atividade -----------
     System.out.print("Digite a quantidade de atividades para cadastrar: ");
     int activityQnt = scanner.nextInt();
     scanner.nextLine();
@@ -38,11 +38,13 @@ public class App {
       int peso = scanner.nextInt();
       scanner.nextLine();
 
-      finalGrade.put(nome, peso);
+      System.out.print("Digite a nota obtida para " + nome + ": ");
+      int nota = scanner.nextInt();
+      scanner.nextLine();
+
       countActivities++;
     }
 
-    System.out.println(finalGrade);
     scanner.close();
   }
 }
